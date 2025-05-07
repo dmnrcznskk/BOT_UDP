@@ -9,7 +9,7 @@
 typedef struct {
     uint32_t timestamp;         
     uint16_t temperature;  //For instance 342 degrees = 34.2 degrees    
-    uint8_t power_state;      
+    uint8_t power_state;   //0 - battery, 1 - AC  
     uint8_t measurement_id;    
     uint8_t checksum;         
 } ThermometerPacket;
@@ -25,8 +25,5 @@ static inline uint16_t simulate_temperature(void) {
 static inline uint8_t simulate_power_status(void) {
   return rand() % 2;
 }
-
-uint8_t compute_checksum();
-
 
 #endif
