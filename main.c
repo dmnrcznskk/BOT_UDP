@@ -11,18 +11,26 @@
 #include "net.h"
 
 int main(int argc, char* argv[]) {
-  if(argc != 3) {
+  if(argc != 4) {
     printf("Wrong number of arguments. Usage: %s <server_ip> <port> <interval>", argv[0]);
     return 1;
   }
+  if(atoi(argv[3]) <= 0) {
+    printf("Invalid interval\n");
+    return 1;
+  }
+
   const char* ip = argv[1];
   const uint16_t port = atoi(argv[2]);
+  const uint16_t interval = atoi(argv[3]);
 
 
   struct sockaddr_in server_address;
   int sockfd = setup_udp_socket(ip, port, &server_address);
 
   srand(time(NULL));
+
+  while(1){
 
   ThermometerPacket packet = simulated_thermometer_data();
 
@@ -37,6 +45,9 @@ int main(int argc, char* argv[]) {
          packet.power_state ? "POWER_AC" : "POWER_BATTERY",
          packet.measurement_id,
          packet.checksum);
+
+  sleep(interval);
+  }
 
   return 0;
 }
