@@ -12,7 +12,7 @@
 
 int main(int argc, char* argv[]) {
   if(argc != 4) {
-    printf("Wrong number of arguments. Usage: %s <server_ip> <port> <interval>", argv[0]);
+    printf("Wrong number of arguments. Usage: %s <server_ip> <port> <interval (seconds)>\n", argv[0]);
     return 1;
   }
   if(atoi(argv[3]) <= 0) {
