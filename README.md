@@ -11,6 +11,7 @@ Aplikacja przyjmuje parametry z linii komend: adres IPv4 serwera, port UDP serwe
 - status zasilania (uint8_t - 0:sieciowe, 1: bateryjne)
 - identyfikator pomiaru (uint8_t)
 - suma kontrolna (uint8_t suma wszystkich poprzednich bajtów % 256, aby zajmowała 1 bajt)
+  
 Pakiety wysyłane są za pomocą UDP. Każdy pakiet logowany jest na ekran konsoli w postaci czytelnej dla użytkownika. Ze względu na wymaganie minimalizacji struktury, oraz na to, że w strukturze nie mogły znajdować się liczby zmiennoprzecinkowe, czas przechowywany jest w standardowym formacie UNIXOWYM, a temperatura w postaci liczby całkowitej). Przez co konieczne jest poprawne formatowanie danych wyświetlanych na ekranie konsoli, lub docelowo na serwerze.
 
 4. Testowanie:
