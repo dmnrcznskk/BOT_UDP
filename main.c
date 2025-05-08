@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
   printf("Timestamp: %u | Temp: %.1f°C | Power: %s | ID: %u | Checksum: 0x%02X\n",
          packet.timestamp,
          packet.temperature / 10.0,
-         packet.power_state ? "POWER_AC" : "POWER_BATTERY",
+         packet.power_state ? "POWER_BATTERY" : "POWER_AC",
          packet.measurement_id,
          packet.checksum);
 
